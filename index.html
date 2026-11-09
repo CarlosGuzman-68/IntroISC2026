@@ -1,40 +1,499 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"> <!-- Metadato de codificación -->
-  <title>VELOCITA - Carros Deportivos</title> <!-- Título del sitio[cite: 1] -->
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VELOCITA | Exotics & Supercars Showcase</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Fuentes tipográficas externas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body> <!-- Contenido visible[cite: 1] -->
+<body>
 
-  <header>
-    <div class="logo">VELOCITA</div>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#modelos">Modelos</a>
-      <a href="#contacto">Contacto</a>
+  <!-- Barra de Navegación -->
+  <header class="navbar">
+    <div class="logo">VELOCITA <span>EXOTICS</span></div>
+    <nav class="nav-links">
+      <a href="#inicio">Inicio</a> <!-- Enlace interno a sección -->
+      <a href="#garaje">Garaje (20)</a> <!-- Enlace interno a sección -->
+      <a href="#innovacion">Tecnología</a> <!-- Enlace interno a sección -->
+      <a href="#contacto" class="nav-btn">Reservar Test Drive</a> <!-- Enlace a formulario -->
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section id="inicio" class="hero">
-    <h1>Pasión por la Velocidad</h1> <!-- Encabezado principal[cite: 1] -->
-    <p>Aceleración de 0 a 100 km/h en 2.8 segundos y diseño aerodinámico de vanguardia.</p> <!-- Párrafo[cite: 1] -->
-    <a href="#modelos" class="btn">Explorar Modelos</a>
-  </section>
-
-  <section id="modelos" class="cards-container">
-    <div class="card">
-      <h2>Apex GT</h2>
-      <p>750 HP | Motor V8 Biturbo</p>
-    </div>
-    <div class="card">
-      <h2>Phantom RS</h2>
-      <p>820 HP | Híbrido V12</p>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="badge">Edición Limitada 2026</span>
+      <h1>La Cumbre de la <span>Ingeniería Automotriz</span></h1>
+      <p>Explora la colección definitiva de los 20 hypercars y superdeportivos más rápidos, exclusivos y potentes del planeta.</p>
+      <div class="hero-buttons">
+        <a href="#garaje" class="btn btn-primary">Ver la Colección</a> <!-- Enlace a la lista -->
+        <a href="#innovacion" class="btn btn-secondary">Especificaciones</a> <!-- Enlace -->
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2026 VELOCITA Motors. Todos los derechos reservados.</p>
+  <!-- Barra de Estadísticas -->
+  <section class="stats-bar">
+    <div class="stat-item">
+      <h3>+2,000 HP</h3>
+      <p>Potencia Máxima</p>
+    </div>
+    <div class="stat-item">
+      <h3>1.81s</h3>
+      <p>0 a 100 km/h</p>
+    </div>
+    <div class="stat-item">
+      <h3>+500 km/h</h3>
+      <p>Velocidad Punta</p>
+    </div>
+    <div class="stat-item">
+      <h3>100%</h3>
+      <p>Fibra de Carbono</p>
+    </div>
+  </section>
+
+  <!-- Catálogo de 20 Autos -->
+  <section id="garaje" class="garage-section">
+    <div class="section-title">
+      <h2>Colección de <span>20 Legendarios Superdeportivos</span></h2>
+      <p>Selección curada con especificaciones de alto rendimiento e imágenes detalladas.</p>
+    </div>
+
+    <div class="cars-grid">
+
+      <!-- 1. Bugatti -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80" alt="Bugatti Chiron Pur Sport"> <!-- Etiqueta img con src y alt -->
+          <span class="tag">Hypercar</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Bugatti</span>
+          <h3>Chiron Pur Sport</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 8.0L W16 Quad-Turbo</li>
+            <li><strong>Potencia:</strong> 1,500 HP</li>
+            <li><strong>0-100 km/h:</strong> 2.3s</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace interno -->
+        </div>
+      </article>
+
+      <!-- 2. Aston Martin -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" alt="Aston Martin Valkyrie"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Aerodinámico</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Aston Martin</span>
+          <h3>Valkyrie</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 6.5L V12 Híbrido</li>
+            <li><strong>Potencia:</strong> 1,160 HP</li>
+            <li><strong>0-100 km/h:</strong> 2.5s</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 3. Ferrari -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=800&q=80" alt="Ferrari SF90 Stradale"> <!-- Imagen[cite: 1] -->
+          <span class="tag">PHEV Supercar</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Ferrari</span>
+          <h3>SF90 Stradale</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 4.0L V8 Turbo + 3 Eléctricos</li>
+            <li><strong>Potencia:</strong> 1,000 HP</li>
+            <li><strong>0-100 km/h:</strong> 2.5s</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 4. Lamborghini -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1519245659610-e9f010971ab4?auto=format&fit=crop&w=800&q=80" alt="Lamborghini Revuelto"> <!-- Imagen[cite: 1] -->
+          <span class="tag">V12 Híbrido</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Lamborghini</span>
+          <h3>Revuelto</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 6.5L V12 + 3 Eléctricos</li>
+            <li><strong>Potencia:</strong> 1,015 HP</li>
+            <li><strong>0-100 km/h:</strong> 2.5s</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 5. Porsche -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80" alt="Porsche 911 GT3 RS"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Track Weapon</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Porsche</span>
+          <h3>911 GT3 RS</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 4.0L B6 Atmosférico</li>
+            <li><strong>Potencia:</strong> 525 HP</li>
+            <li><strong>0-100 km/h:</strong> 3.2s</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 6. McLaren -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80" alt="McLaren 720S"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Supercar</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">McLaren</span>
+          <h3>720S Spider</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 4.0L V8 Twin-Turbo</li>
+            <li><strong>Potencia:</strong> 720 HP</li>
+            <li><strong>0-100 km/h:</strong> 2.9s</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 7. Koenigsegg -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Koenigsegg Jesko"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Megacar</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Koenigsegg</span>
+          <h3>Jesko Absolut</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 5.0L V8 Twin-Turbo</li>
+            <li><strong>Potencia:</strong> 1,600 HP</li>
+            <li><strong>Velocidad Máx:</strong> 530+ km/h</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 8. Pagani -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80" alt="Pagani Huayra"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Arte Automotriz</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Pagani</span>
+          <h3>Huayra Roadster BC</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 6.0L V12 AMG Biturbo</li>
+            <li><strong>Potencia:</strong> 800 HP</li>
+            <li><strong>Peso:</strong> 1,250 kg</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 9. Maserati -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Maserati MC20"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Nettuno V6</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Maserati</span>
+          <h3>MC20 Cielo</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 3.0L V6 Nettuno Twin-Turbo</li>
+            <li><strong>Potencia:</strong> 630 HP</li>
+            <li><strong>0-100 km/h:</strong> 2.9s</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 10. Rimac -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Rimac Nevera"> <!-- Imagen[cite: 1] -->
+          <span class="tag">EV Hypercar</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Rimac</span>
+          <h3>Nevera</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 4 Motores Eléctricos</li>
+            <li><strong>Potencia:</strong> 1,914 HP</li>
+            <li><strong>0-100 km/h:</strong> 1.81s</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 11. Ford GT -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=800&q=80" alt="Ford GT"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Leyenda Le Mans</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Ford Performance</span>
+          <h3>Ford GT Carbon Series</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 3.5L V6 EcoBoost Twin-Turbo</li>
+            <li><strong>Potencia:</strong> 660 HP</li>
+            <li><strong>0-100 km/h:</strong> 3.0s</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 12. Corvette -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80" alt="Chevrolet Corvette Z06"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Flat-Plane V8</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Chevrolet</span>
+          <h3>Corvette Z06 C8</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 5.5L LT6 V8 Atmosférico</li>
+            <li><strong>Potencia:</strong> 670 HP</li>
+            <li><strong>RPM Máx:</strong> 8,600 RPM</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 13. Nissan GT-R -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=800&q=80" alt="Nissan GT-R Nismo"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Godzilla</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Nissan</span>
+          <h3>GT-R Nismo (R35)</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 3.8L V6 Twin-Turbo</li>
+            <li><strong>Potencia:</strong> 600 HP</li>
+            <li><strong>Tracción:</strong> ATTESA E-TS AWD</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 14. Audi R8 -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=800&q=80" alt="Audi R8 V10"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Leyenda V10</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Audi Sport</span>
+          <h3>R8 V10 Performance RWD</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 5.2L V10 Atmosférico</li>
+            <li><strong>Potencia:</strong> 620 HP</li>
+            <li><strong>0-100 km/h:</strong> 3.1s</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 15. Mercedes-AMG -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" alt="Mercedes-AMG GT Black Series"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Récord Nürburgring</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Mercedes-AMG</span>
+          <h3>GT Black Series</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 4.0L V8 Biturbo</li>
+            <li><strong>Potencia:</strong> 730 HP</li>
+            <li><strong>Aerodinámica:</strong> Activa de Carbono</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 16. BMW M8 -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80" alt="BMW M8 Competition"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Gran Turismo</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">BMW M</span>
+          <h3>M8 Competition Coupé</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 4.4L V8 M TwinPower Turbo</li>
+            <li><strong>Potencia:</strong> 625 HP</li>
+            <li><strong>Tracción:</strong> M xDrive Convertible</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 17. Lexus LFA -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=800&q=80" alt="Lexus LFA"> <!-- Imagen[cite: 1] -->
+          <span class="tag">V10 Celestial</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Lexus</span>
+          <h3>LFA Nürburgring Package</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 4.8L V10 Atmosférico</li>
+            <li><strong>Potencia:</strong> 570 HP</li>
+            <li><strong>RPM Máx:</strong> 9,000 RPM</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 18. Lotus Evija -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1541348263662-e082662dc324?auto=format&fit=crop&w=800&q=80" alt="Lotus Evija"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Electric Hypercar</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Lotus</span>
+          <h3>Evija</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 4 Motores Eléctricos</li>
+            <li><strong>Potencia:</strong> 2,011 HP</li>
+            <li><strong>0-300 km/h:</strong> &lt; 9.1s</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 19. Alfa Romeo -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80" alt="Alfa Romeo 33 Stradale"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Exclusivo (33 Unidades)</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Alfa Romeo</span>
+          <h3>33 Stradale</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 3.0L V6 Twin-Turbo</li>
+            <li><strong>Potencia:</strong> 620 HP</li>
+            <li><strong>Chasis:</strong> Carbono & Aluminio</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+      <!-- 20. Hennessey -->
+      <article class="car-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=800&q=80" alt="Hennessey Venom F5"> <!-- Imagen[cite: 1] -->
+          <span class="tag">Pura Velocidad</span>
+        </div>
+        <div class="card-info">
+          <span class="brand">Hennessey</span>
+          <h3>Venom F5 Roadster</h3>
+          <ul class="specs">
+            <li><strong>Motor:</strong> 6.6L V8 "Fury" Twin-Turbo</li>
+            <li><strong>Potencia:</strong> 1,817 HP</li>
+            <li><strong>Velocidad Máx:</strong> 500+ km/h</li>
+          </ul>
+          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Sección de Innovación Tecnológica -->
+  <section id="innovacion" class="features-section">
+    <div class="section-title">
+      <h2>Tecnología de <span>Pista a la Calle</span></h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-box">
+        <div class="icon">🚀</div>
+        <h3>Aerodinámica Activa</h3>
+        <p>Alerones retráctiles y difusores Venturi que generan más de 1,000 kg de carga aerodinámica a alta velocidad.</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">⚡</div>
+        <h3>Hibridación Extrema</h3>
+        <p>Sistemas KERS y baterías de alta densidad combinados con motores atmosféricos y quad-turbo.</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">🛡️</div>
+        <h3>Monocasco de Carbono</h3>
+        <p>Estructuras ultrapunto con máxima rigidez torsional y bajo peso para máxima agilidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario de Contacto -->
+  <section id="contacto" class="contact-section">
+    <div class="contact-card">
+      <h2>Reserva tu <span>Prueba de Manejo</span></h2>
+      <p>Déjanos tus datos para coordinar una cita privada o cotización personalizada.</p>
+      <form action="#" class="contact-form">
+        <div class="form-group">
+          <input type="text" placeholder="Nombre completo" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Correo electrónico" required>
+        </div>
+        <div class="form-group">
+          <select required>
+            <option value="" disabled selected>Selecciona el auto de tu interés</option>
+            <option value="bugatti">Bugatti Chiron Pur Sport</option>
+            <option value="aston">Aston Martin Valkyrie</option>
+            <option value="ferrari">Ferrari SF90 Stradale</option>
+            <option value="lamborghini">Lamborghini Revuelto</option>
+            <option value="koenigsegg">Koenigsegg Jesko</option>
+            <option value="otro">Otro modelo del catálogo</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Enviar Solicitud</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Pie de Página -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="logo">VELOCITA <span>EXOTICS</span></div>
+      <p>La experiencia definitiva para entusiastas del diseño e ingeniería automotriz.</p>
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a> <!-- Enlace -->
+        <a href="#garaje">Catálogo</a> <!-- Enlace -->
+        <a href="#contacto">Contacto</a> <!-- Enlace -->
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2026 VELOCITA Motors. Todos los derechos reservados.</p>
+    </div>
   </footer>
 
 </body>
