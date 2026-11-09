@@ -1,500 +1,605 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VELOCITA | Exotics & Supercars Showcase</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- Fuentes tipográficas externas -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APEX | Superdeportivos de Alto Rendimiento</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET Y VARIABLES --- */
+        :root {
+            --bg-dark: #0a0a0c;
+            --bg-card: rgba(22, 22, 26, 0.7);
+            --primary-red: #ff2a3f;
+            --primary-red-hover: #d61c30;
+            --text-main: #f1f1f5;
+            --text-muted: #9e9ea7;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --font-heading: 'Orbitron', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--primary-red);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-red);
+        }
+
+        .btn-cta {
+            background: var(--primary-red);
+            color: #fff;
+            padding: 0.75rem 1.8rem;
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 42, 63, 0.4);
+        }
+
+        .btn-cta:hover {
+            background: var(--primary-red-hover);
+            box-shadow: 0 0 25px rgba(255, 42, 63, 0.7);
+            transform: translateY(-2px);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background: linear-gradient(to right, rgba(10, 10, 12, 0.95) 30%, rgba(10, 10, 12, 0.3)), 
+                        url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            margin-top: 60px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 42, 63, 0.15);
+            border: 1px solid var(--primary-red);
+            color: var(--primary-red);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-family: var(--font-heading);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.8rem;
+            line-height: 1.1;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-glass);
+            padding: 0.75rem 1.8rem;
+            border-radius: 4px;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- STATS BAR --- */
+        .stats-bar {
+            background: rgba(22, 22, 26, 0.9);
+            border-y: 1px solid var(--border-glass);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 2.5rem 5%;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-red);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- MODELOS --- */
+        .section-padding {
+            padding: 7rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .car-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 42, 63, 0.5);
+        }
+
+        .car-img-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .car-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .car-card:hover .car-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .car-content {
+            padding: 1.8rem;
+        }
+
+        .car-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .specs-mini {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 0.8rem 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .spec-box {
+            text-align: center;
+        }
+
+        .spec-val {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .spec-lbl {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .car-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--primary-red);
+            font-weight: 700;
+        }
+
+        /* --- TECNOLOGÍA --- */
+        .tech-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #121216 100%);
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .tech-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .tech-info h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-feature {
+            margin-bottom: 1.8rem;
+        }
+
+        .tech-feature h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-red);
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .tech-feature p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .tech-image img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border-glass);
+        }
+
+        /* --- RESERVA / CONTACTO --- */
+        .booking-section {
+            text-align: center;
+            background: relative;
+        }
+
+        .booking-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 3rem;
+            border-radius: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-glass);
+            border-radius: 4px;
+            color: #fff;
+            font-family: var(--font-body);
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-red);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border-glass);
+            padding: 3rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            nav { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .tech-container { grid-template-columns: 1fr; }
+            footer { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Barra de Navegación -->
-  <header class="navbar">
-    <div class="logo">VELOCITA <span>EXOTICS</span></div>
-    <nav class="nav-links">
-      <a href="#inicio">Inicio</a> <!-- Enlace interno a sección -->
-      <a href="#garaje">Garaje (20)</a> <!-- Enlace interno a sección -->
-      <a href="#innovacion">Tecnología</a> <!-- Enlace interno a sección -->
-      <a href="#contacto" class="nav-btn">Reservar Test Drive</a> <!-- Enlace a formulario -->
-    </nav>
-  </header>
+    <!-- NAVBAR -->
+    <header>
+        <a href="#" class="logo">APEX<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#modelos">Modelos</a></li>
+                <li><a href="#tecnologia">Tecnología</a></li>
+                <li><a href="#contacto">Test Drive</a></li>
+            </ul>
+        </nav>
+        <a href="#contacto" class="btn-cta">CONFIGURAR</a>
+    </header>
 
-  <!-- Hero Section -->
-  <section id="inicio" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="badge">Edición Limitada 2026</span>
-      <h1>La Cumbre de la <span>Ingeniería Automotriz</span></h1>
-      <p>Explora la colección definitiva de los 20 hypercars y superdeportivos más rápidos, exclusivos y potentes del planeta.</p>
-      <div class="hero-buttons">
-        <a href="#garaje" class="btn btn-primary">Ver la Colección</a> <!-- Enlace a la lista -->
-        <a href="#innovacion" class="btn btn-secondary">Especificaciones</a> <!-- Enlace -->
-      </div>
-    </div>
-  </section>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">INGENIERÍA SIN LÍMITES</span>
+            <h1>Dominio Absoluto del Asfalto</h1>
+            <p>Diseño aerodinámico perfeccionado en túneles de viento, chasis monocasco de fibra de carbono y motores híbridos de rendimiento extremo.</p>
+            <div class="hero-buttons">
+                <a href="#modelos" class="btn-cta">VER MODELOS</a>
+                <a href="#tecnologia" class="btn-secondary">INNOVACIÓN</a>
+            </div>
+        </div>
+    </section>
 
-  <!-- Barra de Estadísticas -->
-  <section class="stats-bar">
-    <div class="stat-item">
-      <h3>+2,000 HP</h3>
-      <p>Potencia Máxima</p>
-    </div>
-    <div class="stat-item">
-      <h3>1.81s</h3>
-      <p>0 a 100 km/h</p>
-    </div>
-    <div class="stat-item">
-      <h3>+500 km/h</h3>
-      <p>Velocidad Punta</p>
-    </div>
-    <div class="stat-item">
-      <h3>100%</h3>
-      <p>Fibra de Carbono</p>
-    </div>
-  </section>
-
-  <!-- Catálogo de 20 Autos -->
-  <section id="garaje" class="garage-section">
-    <div class="section-title">
-      <h2>Colección de <span>20 Legendarios Superdeportivos</span></h2>
-      <p>Selección curada con especificaciones de alto rendimiento e imágenes detalladas.</p>
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-number">2.1s</div>
+            <div class="stat-label">0-100 KM/H</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">1,050</div>
+            <div class="stat-label">CABALLOS DE FUERZA</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">385</div>
+            <div class="stat-label">KM/H VELOCIDAD MÁXIMA</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">1,250</div>
+            <div class="stat-label">KG PESO PLUMA</div>
+        </div>
     </div>
 
-    <div class="cars-grid">
+    <!-- MODELOS -->
+    <section id="modelos" class="section-padding">
+        <div class="section-title">
+            <h2>Gama de Superdeportivos</h2>
+            <p>Precisión de carreras adaptada para la carretera</p>
+        </div>
 
-      <!-- 1. Bugatti -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80" alt="Bugatti Chiron Pur Sport"> <!-- Etiqueta img con src y alt -->
-          <span class="tag">Hypercar</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Bugatti</span>
-          <h3>Chiron Pur Sport</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 8.0L W16 Quad-Turbo</li>
-            <li><strong>Potencia:</strong> 1,500 HP</li>
-            <li><strong>0-100 km/h:</strong> 2.3s</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace interno -->
-        </div>
-      </article>
+        <div class="cars-grid">
+            <!-- Auto 1 -->
+            <div class="car-card">
+                <div class="car-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80" alt="Apex Phantom V8">
+                </div>
+                <div class="car-content">
+                    <h3>APEX PHANTOM V8</h3>
+                    <div class="specs-mini">
+                        <div class="spec-box"><div class="spec-val">780 HP</div><div class="spec-lbl">Potencia</div></div>
+                        <div class="spec-box"><div class="spec-val">2.8s</div><div class="spec-lbl">0-100 km/h</div></div>
+                        <div class="spec-box"><div class="spec-val">340 km/h</div><div class="spec-lbl">Máxima</div></div>
+                    </div>
+                    <div class="car-footer">
+                        <div class="price">$320,000 USD</div>
+                        <a href="#contacto" class="btn-cta" style="padding: 0.5rem 1rem; font-size: 0.75rem;">SOLICITAR</a>
+                    </div>
+                </div>
+            </div>
 
-      <!-- 2. Aston Martin -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" alt="Aston Martin Valkyrie"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Aerodinámico</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Aston Martin</span>
-          <h3>Valkyrie</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 6.5L V12 Híbrido</li>
-            <li><strong>Potencia:</strong> 1,160 HP</li>
-            <li><strong>0-100 km/h:</strong> 2.5s</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
+            <!-- Auto 2 -->
+            <div class="car-card">
+                <div class="car-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80" alt="Apex Ultralight GT">
+                </div>
+                <div class="car-content">
+                    <h3>APEX ULTRALIGHT GT</h3>
+                    <div class="specs-mini">
+                        <div class="spec-box"><div class="spec-val">920 HP</div><div class="spec-lbl">Potencia</div></div>
+                        <div class="spec-box"><div class="spec-val">2.4s</div><div class="spec-lbl">0-100 km/h</div></div>
+                        <div class="spec-box"><div class="spec-val">365 km/h</div><div class="spec-lbl">Máxima</div></div>
+                    </div>
+                    <div class="car-footer">
+                        <div class="price">$480,000 USD</div>
+                        <a href="#contacto" class="btn-cta" style="padding: 0.5rem 1rem; font-size: 0.75rem;">SOLICITAR</a>
+                    </div>
+                </div>
+            </div>
 
-      <!-- 3. Ferrari -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=800&q=80" alt="Ferrari SF90 Stradale"> <!-- Imagen[cite: 1] -->
-          <span class="tag">PHEV Supercar</span>
+            <!-- Auto 3 -->
+            <div class="car-card">
+                <div class="car-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Apex Hyperion Hybrid">
+                </div>
+                <div class="car-content">
+                    <h3>APEX HYPERION HYBRID</h3>
+                    <div class="specs-mini">
+                        <div class="spec-box"><div class="spec-val">1050 HP</div><div class="spec-lbl">Potencia</div></div>
+                        <div class="spec-box"><div class="spec-val">2.1s</div><div class="spec-lbl">0-100 km/h</div></div>
+                        <div class="spec-box"><div class="spec-val">385 km/h</div><div class="spec-lbl">Máxima</div></div>
+                    </div>
+                    <div class="car-footer">
+                        <div class="price">$750,000 USD</div>
+                        <a href="#contacto" class="btn-cta" style="padding: 0.5rem 1rem; font-size: 0.75rem;">SOLICITAR</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-info">
-          <span class="brand">Ferrari</span>
-          <h3>SF90 Stradale</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 4.0L V8 Turbo + 3 Eléctricos</li>
-            <li><strong>Potencia:</strong> 1,000 HP</li>
-            <li><strong>0-100 km/h:</strong> 2.5s</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
+    </section>
 
-      <!-- 4. Lamborghini -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1519245659610-e9f010971ab4?auto=format&fit=crop&w=800&q=80" alt="Lamborghini Revuelto"> <!-- Imagen[cite: 1] -->
-          <span class="tag">V12 Híbrido</span>
+    <!-- TECNOLOGÍA -->
+    <section id="tecnologia" class="section-padding tech-section">
+        <div class="tech-container">
+            <div class="tech-info">
+                <h2>Tecnología de Competición</h2>
+                <div class="tech-feature">
+                    <h4>Aerodinámica Activa</h4>
+                    <p>Alerones móviles que ajustan automáticamente el ángulo de carga según la velocidad y fuerza lateral de viraje.</p>
+                </div>
+                <div class="tech-feature">
+                    <h4>Chasis Monocasco de Carbono T1000</h4>
+                    <p>Rigidez estructural de grado de Fórmula 1 con una reducción de peso superior al 35% respecto a aleaciones tradicionales.</p>
+                </div>
+                <div class="tech-feature">
+                    <h4>Tren Motriz Híbrido Tri-Motor</h4>
+                    <p>Combinación de motor V8 Bi-Turbo con tres motores eléctricos de respuesta instantánea y tracción integral vectorial.</p>
+                </div>
+            </div>
+            <div class="tech-image">
+                <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Supercar Cockpit Technology">
+            </div>
         </div>
-        <div class="card-info">
-          <span class="brand">Lamborghini</span>
-          <h3>Revuelto</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 6.5L V12 + 3 Eléctricos</li>
-            <li><strong>Potencia:</strong> 1,015 HP</li>
-            <li><strong>0-100 km/h:</strong> 2.5s</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
+    </section>
 
-      <!-- 5. Porsche -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80" alt="Porsche 911 GT3 RS"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Track Weapon</span>
+    <!-- CONTACTO / TEST DRIVE -->
+    <section id="contacto" class="section-padding booking-section">
+        <div class="booking-card">
+            <div class="section-title" style="margin-bottom: 2rem;">
+                <h2>Agendar Test Drive</h2>
+                <p>Experimenta el poder de APEX en pista privada</p>
+            </div>
+            <form id="driveForm">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" required placeholder="Tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" required placeholder="correo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="car">Modelo de Interés</label>
+                    <select id="car">
+                        <option value="phantom">APEX Phantom V8</option>
+                        <option value="ultralight">APEX Ultralight GT</option>
+                        <option value="hyperion">APEX Hyperion Hybrid</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-cta" style="width: 100%; margin-top: 1rem;">CONFIRMAR RESERVA</button>
+            </form>
         </div>
-        <div class="card-info">
-          <span class="brand">Porsche</span>
-          <h3>911 GT3 RS</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 4.0L B6 Atmosférico</li>
-            <li><strong>Potencia:</strong> 525 HP</li>
-            <li><strong>0-100 km/h:</strong> 3.2s</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
+    </section>
 
-      <!-- 6. McLaren -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80" alt="McLaren 720S"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Supercar</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">McLaren</span>
-          <h3>720S Spider</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 4.0L V8 Twin-Turbo</li>
-            <li><strong>Potencia:</strong> 720 HP</li>
-            <li><strong>0-100 km/h:</strong> 2.9s</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
+    <!-- FOOTER -->
+    <footer>
+        <div class="logo">APEX<span>.</span></div>
+        <div>&copy; 2026 APEX Automotive Performance Inc. Todos los derechos reservados.</div>
+    </footer>
 
-      <!-- 7. Koenigsegg -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Koenigsegg Jesko"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Megacar</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Koenigsegg</span>
-          <h3>Jesko Absolut</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 5.0L V8 Twin-Turbo</li>
-            <li><strong>Potencia:</strong> 1,600 HP</li>
-            <li><strong>Velocidad Máx:</strong> 530+ km/h</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 8. Pagani -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80" alt="Pagani Huayra"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Arte Automotriz</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Pagani</span>
-          <h3>Huayra Roadster BC</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 6.0L V12 AMG Biturbo</li>
-            <li><strong>Potencia:</strong> 800 HP</li>
-            <li><strong>Peso:</strong> 1,250 kg</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 9. Maserati -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Maserati MC20"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Nettuno V6</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Maserati</span>
-          <h3>MC20 Cielo</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 3.0L V6 Nettuno Twin-Turbo</li>
-            <li><strong>Potencia:</strong> 630 HP</li>
-            <li><strong>0-100 km/h:</strong> 2.9s</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 10. Rimac -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Rimac Nevera"> <!-- Imagen[cite: 1] -->
-          <span class="tag">EV Hypercar</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Rimac</span>
-          <h3>Nevera</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 4 Motores Eléctricos</li>
-            <li><strong>Potencia:</strong> 1,914 HP</li>
-            <li><strong>0-100 km/h:</strong> 1.81s</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 11. Ford GT -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=800&q=80" alt="Ford GT"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Leyenda Le Mans</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Ford Performance</span>
-          <h3>Ford GT Carbon Series</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 3.5L V6 EcoBoost Twin-Turbo</li>
-            <li><strong>Potencia:</strong> 660 HP</li>
-            <li><strong>0-100 km/h:</strong> 3.0s</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 12. Corvette -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80" alt="Chevrolet Corvette Z06"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Flat-Plane V8</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Chevrolet</span>
-          <h3>Corvette Z06 C8</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 5.5L LT6 V8 Atmosférico</li>
-            <li><strong>Potencia:</strong> 670 HP</li>
-            <li><strong>RPM Máx:</strong> 8,600 RPM</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 13. Nissan GT-R -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=800&q=80" alt="Nissan GT-R Nismo"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Godzilla</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Nissan</span>
-          <h3>GT-R Nismo (R35)</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 3.8L V6 Twin-Turbo</li>
-            <li><strong>Potencia:</strong> 600 HP</li>
-            <li><strong>Tracción:</strong> ATTESA E-TS AWD</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 14. Audi R8 -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=800&q=80" alt="Audi R8 V10"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Leyenda V10</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Audi Sport</span>
-          <h3>R8 V10 Performance RWD</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 5.2L V10 Atmosférico</li>
-            <li><strong>Potencia:</strong> 620 HP</li>
-            <li><strong>0-100 km/h:</strong> 3.1s</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 15. Mercedes-AMG -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" alt="Mercedes-AMG GT Black Series"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Récord Nürburgring</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Mercedes-AMG</span>
-          <h3>GT Black Series</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 4.0L V8 Biturbo</li>
-            <li><strong>Potencia:</strong> 730 HP</li>
-            <li><strong>Aerodinámica:</strong> Activa de Carbono</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 16. BMW M8 -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80" alt="BMW M8 Competition"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Gran Turismo</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">BMW M</span>
-          <h3>M8 Competition Coupé</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 4.4L V8 M TwinPower Turbo</li>
-            <li><strong>Potencia:</strong> 625 HP</li>
-            <li><strong>Tracción:</strong> M xDrive Convertible</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 17. Lexus LFA -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=800&q=80" alt="Lexus LFA"> <!-- Imagen[cite: 1] -->
-          <span class="tag">V10 Celestial</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Lexus</span>
-          <h3>LFA Nürburgring Package</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 4.8L V10 Atmosférico</li>
-            <li><strong>Potencia:</strong> 570 HP</li>
-            <li><strong>RPM Máx:</strong> 9,000 RPM</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 18. Lotus Evija -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1541348263662-e082662dc324?auto=format&fit=crop&w=800&q=80" alt="Lotus Evija"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Electric Hypercar</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Lotus</span>
-          <h3>Evija</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 4 Motores Eléctricos</li>
-            <li><strong>Potencia:</strong> 2,011 HP</li>
-            <li><strong>0-300 km/h:</strong> &lt; 9.1s</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 19. Alfa Romeo -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80" alt="Alfa Romeo 33 Stradale"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Exclusivo (33 Unidades)</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Alfa Romeo</span>
-          <h3>33 Stradale</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 3.0L V6 Twin-Turbo</li>
-            <li><strong>Potencia:</strong> 620 HP</li>
-            <li><strong>Chasis:</strong> Carbono & Aluminio</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-      <!-- 20. Hennessey -->
-      <article class="car-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=800&q=80" alt="Hennessey Venom F5"> <!-- Imagen[cite: 1] -->
-          <span class="tag">Pura Velocidad</span>
-        </div>
-        <div class="card-info">
-          <span class="brand">Hennessey</span>
-          <h3>Venom F5 Roadster</h3>
-          <ul class="specs">
-            <li><strong>Motor:</strong> 6.6L V8 "Fury" Twin-Turbo</li>
-            <li><strong>Potencia:</strong> 1,817 HP</li>
-            <li><strong>Velocidad Máx:</strong> 500+ km/h</li>
-          </ul>
-          <a href="#contacto" class="card-btn">Solicitar Cotización</a> <!-- Enlace -->
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- Sección de Innovación Tecnológica -->
-  <section id="innovacion" class="features-section">
-    <div class="section-title">
-      <h2>Tecnología de <span>Pista a la Calle</span></h2>
-    </div>
-    <div class="features-grid">
-      <div class="feature-box">
-        <div class="icon">🚀</div>
-        <h3>Aerodinámica Activa</h3>
-        <p>Alerones retráctiles y difusores Venturi que generan más de 1,000 kg de carga aerodinámica a alta velocidad.</p>
-      </div>
-      <div class="feature-box">
-        <div class="icon">⚡</div>
-        <h3>Hibridación Extrema</h3>
-        <p>Sistemas KERS y baterías de alta densidad combinados con motores atmosféricos y quad-turbo.</p>
-      </div>
-      <div class="feature-box">
-        <div class="icon">🛡️</div>
-        <h3>Monocasco de Carbono</h3>
-        <p>Estructuras ultrapunto con máxima rigidez torsional y bajo peso para máxima agilidad.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Formulario de Contacto -->
-  <section id="contacto" class="contact-section">
-    <div class="contact-card">
-      <h2>Reserva tu <span>Prueba de Manejo</span></h2>
-      <p>Déjanos tus datos para coordinar una cita privada o cotización personalizada.</p>
-      <form action="#" class="contact-form">
-        <div class="form-group">
-          <input type="text" placeholder="Nombre completo" required>
-        </div>
-        <div class="form-group">
-          <input type="email" placeholder="Correo electrónico" required>
-        </div>
-        <div class="form-group">
-          <select required>
-            <option value="" disabled selected>Selecciona el auto de tu interés</option>
-            <option value="bugatti">Bugatti Chiron Pur Sport</option>
-            <option value="aston">Aston Martin Valkyrie</option>
-            <option value="ferrari">Ferrari SF90 Stradale</option>
-            <option value="lamborghini">Lamborghini Revuelto</option>
-            <option value="koenigsegg">Koenigsegg Jesko</option>
-            <option value="otro">Otro modelo del catálogo</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary btn-full">Enviar Solicitud</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Pie de Página -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="logo">VELOCITA <span>EXOTICS</span></div>
-      <p>La experiencia definitiva para entusiastas del diseño e ingeniería automotriz.</p>
-      <div class="footer-links">
-        <a href="#inicio">Inicio</a> <!-- Enlace -->
-        <a href="#garaje">Catálogo</a> <!-- Enlace -->
-        <a href="#contacto">Contacto</a> <!-- Enlace -->
-      </div>
-    </div>
-    <div class="copyright">
-      <p>&copy; 2026 VELOCITA Motors. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
+    <script>
+        document.getElementById('driveForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(`¡Gracias ${name}! Tu solicitud de Test Drive ha sido recibida. Un asesor de APEX se pondrá en contacto en breve.`);
+            this.reset();
+        });
+    </script>
 </body>
 </html>
